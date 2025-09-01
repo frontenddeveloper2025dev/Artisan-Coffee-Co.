@@ -1,0 +1,179 @@
+/**
+ * =====================================
+ *         UI Design Guide
+ * =====================================
+ * 
+ * Project: Artisan Coffee Subscription
+ * Type: Premium E-commerce
+ * 
+ * Design Language
+ * Style: Modern Minimalism · Vintage Café · Artisan Craft
+ * Vision: Blend contemporary elegance with timeless coffee culture
+ * 
+ * Philosophy:
+ * Deep roast sophistication meets creamy comfort. Rich textures 
+ * evoke the sensory experience of premium coffee - from bean to cup.
+ * Toasted wood warmth balances clean modern interfaces.
+ * =====================================
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Coffee-inspired color palette */
+    --background: 45 15% 96%;           /* Cream white */
+    --foreground: 25 15% 15%;           /* Dark roast */
+    --card: 45 25% 98%;                 /* Off-white cards */
+    --card-foreground: 25 15% 15%;      /* Dark roast text */
+    --popover: 45 25% 98%;
+    --popover-foreground: 25 15% 15%;
+    --primary: 25 25% 20%;              /* Deep coffee brown */
+    --primary-foreground: 45 25% 95%;   /* Cream */
+    --secondary: 35 20% 85%;            /* Light toast */
+    --secondary-foreground: 25 15% 15%;
+    --muted: 40 15% 90%;                /* Subtle cream */
+    --muted-foreground: 25 10% 50%;     /* Medium roast */
+    --accent: 30 35% 75%;               /* Warm caramel */
+    --accent-foreground: 25 15% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 35 12% 85%;               /* Soft dividers */
+    --input: 35 12% 85%;
+    --ring: 25 25% 20%;                 /* Focus ring */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.75rem;                  /* Softer curves */
+    
+    /* Coffee-specific custom variables */
+    --coffee-bean: 25 30% 25%;          /* Rich bean brown */
+    --coffee-cream: 45 40% 92%;         /* Rich cream */
+    --coffee-caramel: 30 45% 65%;       /* Golden caramel */
+    --coffee-wood: 35 25% 60%;          /* Toasted wood */
+    --coffee-steam: 0 0% 95%;           /* Light steam */
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%
+  ;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%}
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+}
+
+@layer components {
+  /* Coffee texture gradients */
+  .coffee-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--coffee-bean)) 0%, 
+      hsl(var(--coffee-wood)) 100%);
+  }
+  
+  .cream-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--coffee-cream)) 0%, 
+      hsl(var(--background)) 100%);
+  }
+  
+  .caramel-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--coffee-caramel)) 0%, 
+      hsl(var(--coffee-wood)) 100%);
+  }
+  
+  /* Texture overlays */
+  .texture-overlay {
+    position: relative;
+  }
+  
+  .texture-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  
+  /* Coffee bean pattern */
+  .bean-pattern {
+    background-image: 
+      radial-gradient(ellipse 3px 6px at 50% 50%, 
+        hsl(var(--coffee-bean) / 0.1) 30%, 
+        transparent 31%);
+    background-size: 20px 20px;
+  }
+  
+  /* Smooth scroll behavior */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Coffee intensity spectrum */
+  .intensity-spectrum {
+    background: linear-gradient(90deg,
+      hsl(45 40% 85%) 0%,     /* Light roast */
+      hsl(35 35% 70%) 25%,    /* Medium roast */
+      hsl(30 30% 55%) 50%,    /* Medium-dark */
+      hsl(25 25% 40%) 75%,    /* Dark roast */
+      hsl(20 20% 25%) 100%    /* French roast */
+    );
+  }
+}
